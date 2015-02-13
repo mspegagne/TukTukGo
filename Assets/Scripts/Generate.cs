@@ -19,9 +19,10 @@ public class Generate : MonoBehaviour
 	{
 		System.Random rnd = new System.Random();
 		int type = rnd.Next(1, 4);
-		int position = rnd.Next(-5, -1);
+		int position = rnd.Next(-4, -1);
 
 		GameObject obstacle;
+
 		switch (type) {
 		case 1 :
 			obstacle = obstacle1;
