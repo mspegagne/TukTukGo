@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 /// <summary>
 /// Player controller and behavior
@@ -46,6 +47,18 @@ public class Player : MonoBehaviour
 		
 		// End of the update method
 	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag ("Enemy")) {
+			Health playerHealth = this.GetComponent<Health> ();
+			if (playerHealth != null)
+				playerHealth.Damage (1);
+		}
+
+
+	}
+
 
 
 	

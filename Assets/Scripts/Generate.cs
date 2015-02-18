@@ -4,10 +4,10 @@ using System;
 
 public class Generate : MonoBehaviour
 {
-	public GameObject obstacle1;
-	public GameObject obstacle2;
-	public GameObject obstacle3;
-	public GameObject obstacle4;
+	public Enemy obstacle1;
+	public Enemy obstacle2;
+	public Enemy obstacle3;
+	public Enemy obstacle4;
 	
 	// Use this for initialization
 	void Start()
@@ -21,7 +21,7 @@ public class Generate : MonoBehaviour
 		int type = rnd.Next(1, 4);
 		int position = rnd.Next(-4, -1);
 
-		GameObject obstacle;
+		Enemy obstacle;
 
 		switch (type) {
 		case 1 :
