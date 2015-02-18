@@ -14,11 +14,12 @@ public class Player : MonoBehaviour
 	{
 
 			// Jump
-			if (Input.GetKeyUp("space"))
+			if (Input.GetKeyUp("space") || Input.GetMouseButtonDown(0))
 			{
 				rigidbody2D.velocity = Vector2.zero;
 				rigidbody2D.AddForce(jumpForce);
 			}
+
 		
 		// 6 - Make sure we are not outside the camera bounds
 		var dist = (transform.position - Camera.main.transform.position).z;
@@ -59,6 +60,13 @@ public class Player : MonoBehaviour
 
 	}
 
+	void OnDestroy()
+	{
+		// Game Over.
+		// Add the script to the parent because the current game
+		// object is likely going to be destroyed immediately.
+		transform.parent.gameObject.AddComponent<GameOver>();
+	}
 
 
 	

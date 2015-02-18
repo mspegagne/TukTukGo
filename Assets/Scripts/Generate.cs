@@ -12,14 +12,17 @@ public class Generate : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		InvokeRepeating("CreateObstacle", 1f, 3f);
+		InvokeRepeating("CreateObstacle", 1f, 2f);
 	}
 	
 	void CreateObstacle()
 	{
 		System.Random rnd = new System.Random();
 		int type = rnd.Next(1, 4);
+		int bottom = rnd.Next(1, 5);
 		int position = rnd.Next(-4, -1);
+		if (bottom == 1)
+			position = -4;
 
 		Enemy obstacle;
 
