@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Move.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\Points.cs" />
      <Compile Include="Assets\Scripts\Scrolling.cs" />
      <Compile Include="Assets\Scripts\SoundEffectsHelper.cs" />
      <Compile Include="Assets\Scripts\SpecialEffectsHelper.cs" />

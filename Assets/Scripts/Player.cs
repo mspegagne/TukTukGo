@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 {
 	public Vector2 jumpForce = new Vector2(0, 300);
 
+	public static uint points = 0;
 	
 	void Update()
 	{
