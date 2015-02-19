@@ -9,11 +9,14 @@ public class Player : MonoBehaviour
 {
 	public Vector2 jumpForce = new Vector2(0, 300);
 
-	public static uint points = 0;
+	public static int points = 0;
+
+	public static int highscore = 0;
 
 	void Start()
 	{
 		InvokeRepeating("addPoints", 1f, 1f);
+		highscore = PlayerPrefs.GetInt("High Score");
 	}
 
 	void Update()
@@ -77,6 +80,14 @@ public class Player : MonoBehaviour
 		// Game Over.
 		// Add the script to the parent because the current game
 		// object is likely going to be destroyed immediately.
+		if(points > highscore) //when player dies set highscore = to that score
+		{
+			highscore = points;
+			PlayerPrefs.SetInt("High Score", highscore);
+			
+			Debug.Log("High Score is " + highscore );
+			
+		}    
 		transform.parent.gameObject.AddComponent<GameOver>();
 	}
 

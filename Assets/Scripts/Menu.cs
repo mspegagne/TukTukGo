@@ -5,6 +5,20 @@
 /// </summary>
 public class Menu : MonoBehaviour
 {
+	void DisplayScore()
+	{
+		Rect IconRect = new Rect(10, 10, 32, 32);                      
+		int highscore = PlayerPrefs.GetInt("High Score");
+
+		GUIStyle style = new GUIStyle();
+		style.fontSize = 25;
+		style.fontStyle = FontStyle.Bold;
+		style.normal.textColor = Color.black;
+		
+		Rect labelRect = new Rect(IconRect.xMax, IconRect.y, 60, 32);
+		GUI.Label(labelRect, "High Score : "+highscore.ToString(), style);
+	}
+
 	void OnGUI()
 	{
 		const int buttonWidth = 84;
@@ -18,7 +32,9 @@ public class Menu : MonoBehaviour
 			buttonWidth,
 			buttonHeight
 			);
-		
+
+		DisplayScore();
+
 		// Draw a button to start the game
 		if(GUI.Button(buttonRect,"Start!"))
 		{
@@ -26,5 +42,6 @@ public class Menu : MonoBehaviour
 			// "Stage1" is the name of the first scene we created.
 			Application.LoadLevel("Game");
 		}
+
 	}
 }
