@@ -7,7 +7,8 @@ public class Generate : MonoBehaviour
 	public Enemy obstacle1;
 	public Enemy obstacle2;
 	public Enemy obstacle3;
-	public Enemy obstacle4;
+	public Enemy obstacle4;	
+	public Enemy obstacle;
 	
 	// Use this for initialization
 	void Start()
@@ -23,8 +24,6 @@ public class Generate : MonoBehaviour
 		int position = rnd.Next(-4, -1);
 		if (bottom == 1)
 			position = -4;
-
-		Enemy obstacle;
 
 		switch (type) {
 		case 1 :
@@ -42,7 +41,6 @@ public class Generate : MonoBehaviour
 		}
 
 		Instantiate(obstacle, new Vector3(10, position, 0), Quaternion.identity);
-
 
 	}
 }
