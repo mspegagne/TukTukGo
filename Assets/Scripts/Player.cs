@@ -10,7 +10,12 @@ public class Player : MonoBehaviour
 	public Vector2 jumpForce = new Vector2(0, 300);
 
 	public static uint points = 0;
-	
+
+	void Start()
+	{
+		InvokeRepeating("addPoints", 1f, 1f);
+	}
+
 	void Update()
 	{
 
@@ -46,8 +51,7 @@ public class Player : MonoBehaviour
 			Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
 			transform.position.z
 			);
-		
-		// End of the update method
+
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -60,6 +64,13 @@ public class Player : MonoBehaviour
 
 
 	}
+
+	void addPoints()
+	{
+		points += 10;
+	}
+
+
 
 	void OnDestroy()
 	{

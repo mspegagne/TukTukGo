@@ -24,6 +24,7 @@ public class GameOver : MonoBehaviour
 			)
 		{
 			// Reload the level
+			Player.points = 0;
 			Application.LoadLevel("Game");
 		}
 		
@@ -40,7 +41,8 @@ public class GameOver : MonoBehaviour
 			)
 			)
 		{
-			// Reload the level
+			// Reload the level			
+			Player.points = 0;
 			Application.LoadLevel("Menu");
 		}
 	}
