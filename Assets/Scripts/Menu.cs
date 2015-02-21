@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Title screen script
-/// </summary>
 public class Menu : MonoBehaviour
 {
+	
+	public Texture start;
+
 	void DisplayScore()
 	{
-		Rect IconRect = new Rect(10, 10, 32, 32);                      
+		Rect IconRect = new Rect(Screen.width/2-130, Screen.height/2-30, 0, 0);                      
 		int highscore = PlayerPrefs.GetInt("High Score");
 
 		GUIStyle style = new GUIStyle();
-		style.fontSize = 25;
+		style.fontSize = 35;
 		style.fontStyle = FontStyle.Bold;
 		style.normal.textColor = Color.black;
 		
@@ -28,7 +28,7 @@ public class Menu : MonoBehaviour
 		// Center in X, 2/3 of the height in Y
 		Rect buttonRect = new Rect(
 			Screen.width / 2 - (buttonWidth / 2),
-			(2 * Screen.height / 3) - (buttonHeight / 2),
+			(2 * Screen.height / 3 + 30) - (buttonHeight / 2),
 			buttonWidth,
 			buttonHeight
 			);

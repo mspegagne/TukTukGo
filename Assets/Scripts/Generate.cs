@@ -15,13 +15,19 @@ public class Generate : MonoBehaviour
 	public Enemy obstacle;	
 	private bool isSpawning = false;
 
+
+	void Start()
+	{
+		CreateObstacleVoid();	
+			
+	}
+
 	void Update()
 	{
 		if (! isSpawning) {
 			isSpawning = true; 
 			float difficult = 3.2f - Coeff();	
 			StartCoroutine (CreateObstacle(difficult));	
-			Debug.Log (difficult);
 		}
 	}
 
@@ -53,6 +59,7 @@ public class Generate : MonoBehaviour
 		return coeff;
 
 	}
+	
 	
 	IEnumerator CreateObstacle(float difficult)
 	{
@@ -87,7 +94,7 @@ public class Generate : MonoBehaviour
 			break;
 		case 7 :
 			obstacle = trou;	
-			position += 0.3f;	
+			position -= 0.5f;	
 			break;
 		default :
 			obstacle = vache;			
@@ -96,8 +103,54 @@ public class Generate : MonoBehaviour
 		}
 		
 			yield return new WaitForSeconds(difficult);
-			Instantiate (obstacle, new Vector3 (10, position, 5), Quaternion.identity);		
+			Instantiate (obstacle, new Vector3 (0, position, 5), Quaternion.identity);		
 			isSpawning = false;
 
+	}
+
+	void CreateObstacleVoid()
+	{
+		System.Random rnd = new System.Random();
+		int type = rnd.Next(1, 9);
+		int bottom = rnd.Next(1, 5);
+		float position = rnd.Next(-4, -1);
+		if (bottom == 1)
+			position = -4;
+		
+		switch (type) {
+		case 1 :
+			obstacle = moto;
+			break;
+		case 2 :
+			obstacle = bus;
+			position += 0.5f;
+			break;
+		case 3 :
+			obstacle = adulte;
+			break;
+		case 4 :
+			obstacle = camion1;			
+			position += 0.5f;
+			break;
+		case 5 :
+			obstacle = camion2;
+			position += 0.5f;	
+			break;
+		case 6 :
+			obstacle = enfant;	
+			break;
+		case 7 :
+			obstacle = trou;	
+			position -= 0.5f;	
+			break;
+		default :
+			obstacle = vache;			
+			position += 0.52f;	
+			break;
+		}
+		
+
+		Instantiate (obstacle, new Vector3 (0, position, 5), Quaternion.identity);	
+		
 	}
 }
