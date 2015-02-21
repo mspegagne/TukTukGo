@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
 	/// <summary>
 	/// Damage inflicted
 	/// </summary>
-	public int damage = 1;
+	public int damage = 1;	
+	
+	private SpriteRenderer sprite;
 
 	
 	void Start()
@@ -20,4 +22,15 @@ public class Enemy : MonoBehaviour
 		// 2 - Limited time to live to avoid any leak
 		Destroy(gameObject, 20); // 20sec
 	}
+
+	void Update()
+	{
+
+		
+		sprite = GetComponent<SpriteRenderer>();
+		sprite.sortingOrder = Convert.ToInt32(Math.Floor(-transform.position.y * 10));
+		
+		
+	}
+
 }
