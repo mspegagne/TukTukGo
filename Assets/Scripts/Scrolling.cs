@@ -14,13 +14,13 @@ public class Scrolling : MonoBehaviour
 
 	void Start()
 	{
-		InvokeRepeating("CreateBack", 6.4f, 6.4f);
+		InvokeRepeating("CreateBack", 10f, 20f);
 	}
 	
 	void CreateBack()
 	{
 		System.Random rnd = new System.Random();
-		int type = rnd.Next(1, 4);
+		int type = rnd.Next(1, 5);
 
 		switch (type) {
 		case 1 :
@@ -37,7 +37,8 @@ public class Scrolling : MonoBehaviour
 			break;
 		}
 		
-		Instantiate(back, new Vector3(37, 0, 5), Quaternion.identity);
+		Instantiate(back, new Vector3(50, 0, 5), Quaternion.identity);		
+		Instantiate(back, new Vector3(100, 0, 5), Quaternion.identity);
 		
 		
 	}

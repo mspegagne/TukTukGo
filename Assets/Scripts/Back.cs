@@ -10,6 +10,6 @@ public class Back : MonoBehaviour
 	
 	void Start()
 	{
-		Destroy(gameObject, 20); // 20sec
+		Destroy(gameObject, 60);
 	}
 }
