@@ -2,9 +2,6 @@
 using System.Collections;
 using System;
 
-/// <summary>
-/// Projectile behavior
-/// </summary>
 public class Back : MonoBehaviour
 {
 	

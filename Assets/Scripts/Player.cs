@@ -2,9 +2,6 @@
 using System.Collections;
 using System;
 
-/// <summary>
-/// Player controller and behavior
-/// </summary>
 public class Player : MonoBehaviour
 {
 	public Vector2 jumpForce = new Vector2(0, 300);
@@ -39,14 +36,21 @@ public class Player : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.CompareTag ("Enemy")) {
+		if (collision.gameObject.CompareTag("Enemy")) {
 			Health playerHealth = this.GetComponent<Health> ();
 			if (playerHealth != null)
 				playerHealth.Damage (1);
 		}
 
-
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.CompareTag("Bonus")) {
+			points += 75;
+			Destroy(other.gameObject);
+		}
+	}
+
 
 	void addPoints()
 	{
@@ -57,16 +61,9 @@ public class Player : MonoBehaviour
 
 	void OnDestroy()
 	{
-		// Game Over.
-		// Add the script to the parent because the current game
-		// object is likely going to be destroyed immediately.
-		if(points > highscore) //when player dies set highscore = to that score
 		{
 			highscore = points;
-			PlayerPrefs.SetInt("High Score", highscore);
-			
-			Debug.Log("High Score is " + highscore );
-			
+			PlayerPrefs.SetInt("High Score", highscore);			
 		}    
 		transform.parent.gameObject.AddComponent<GameOver>();
 	}

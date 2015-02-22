@@ -13,12 +13,16 @@ public class Generate : MonoBehaviour
 	public Enemy trou;
 	public Enemy vache;	
 	public Enemy obstacle;	
+	public Bonus bidon;
+	public Bonus riz;	
+	public Bonus bonus;	
 	private bool isSpawning = false;
 
 
 	void Start()
 	{
-		CreateObstacleVoid();	
+		CreateObstacleVoid();		
+		InvokeRepeating("Bonus", 10f, 20f);
 			
 	}
 
@@ -153,4 +157,29 @@ public class Generate : MonoBehaviour
 		Instantiate (obstacle, new Vector3 (0, position, 5), Quaternion.identity);	
 		
 	}
+
+	void Bonus()
+	{
+		System.Random rnd = new System.Random();
+		int type = rnd.Next(1, 3);
+		int bottom = rnd.Next(1, 5);
+		float position = rnd.Next(-4, -1);
+		if (bottom == 1)
+			position = -4;
+		
+		switch (type) {
+		case 1 :
+			bonus = riz;
+			break;
+		default :
+			bonus = bidon;			
+			position += 0.5f;	
+			break;
+		}
+		
+		
+		Instantiate (bonus, new Vector3 (0, position, 5), Quaternion.identity);	
+
+	}
+
 }

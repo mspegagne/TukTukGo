@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Start or quit the game
-/// </summary>
 public class GameOver : MonoBehaviour
 {
 	void OnGUI()
@@ -12,7 +9,6 @@ public class GameOver : MonoBehaviour
 		
 		if (
 			GUI.Button(
-			// Center in X, 1/3 of the height in Y
 			new Rect(
 			Screen.width / 2 - (buttonWidth / 2),
 			(1 * Screen.height / 3) - (buttonHeight / 2),
@@ -23,14 +19,12 @@ public class GameOver : MonoBehaviour
 			)
 			)
 		{
-			// Reload the level
 			Player.points = 0;
 			Application.LoadLevel("Game");
 		}
 		
 		if (
 			GUI.Button(
-			// Center in X, 2/3 of the height in Y
 			new Rect(
 			Screen.width / 2 - (buttonWidth / 2),
 			(2 * Screen.height / 3) - (buttonHeight / 2),
@@ -40,8 +34,7 @@ public class GameOver : MonoBehaviour
 			"Back to menu"
 			)
 			)
-		{
-			// Reload the level			
+		{		
 			Player.points = 0;
 			Application.LoadLevel("Menu");
 		}
