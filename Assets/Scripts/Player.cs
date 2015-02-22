@@ -61,9 +61,13 @@ public class Player : MonoBehaviour
 
 	void OnDestroy()
 	{
+		if(points > highscore)
 		{
 			highscore = points;
-			PlayerPrefs.SetInt("High Score", highscore);			
+			PlayerPrefs.SetInt("High Score", highscore);
+			
+			Debug.Log("High Score is " + highscore );
+			
 		}    
 		transform.parent.gameObject.AddComponent<GameOver>();
 	}
