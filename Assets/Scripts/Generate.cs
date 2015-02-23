@@ -30,7 +30,7 @@ public class Generate : MonoBehaviour
 	{
 		if (! isSpawning) {
 			isSpawning = true; 
-			float difficult = 3.2f - Coeff();	
+			float difficult = 2.7f - Coeff();	
 			StartCoroutine (CreateObstacle(difficult));	
 		}
 	}
@@ -39,26 +39,14 @@ public class Generate : MonoBehaviour
 	{
 		float score = Player.points;
 		float coeff = 0f;
-		if ((score > 100) && (score <= 300)){
-			coeff = 0.3f;
-		}		
-		if ((score > 300) && (score <= 800)){
-			coeff = 0.8f;
+		if (score <1000){
+			coeff = score/1000;
 		}
-		if ((score > 800) && (score <= 1200)){
-			coeff = 1.2f;
+		if ((score > 100) && (score <= 2500)){
+			coeff = 1+((score-1000)/1500);
 		}
-		if ((score > 800) && (score <= 1200)){
-			coeff = 1.5f;
-		}
-		if ((score > 1200) && (score <= 1700)){
-			coeff = 1.8f;
-		}
-		if ((score > 1700) && (score <= 2300)){
-			coeff = 2.1f;
-		}
-		if (score > 2300){
-			coeff = 2.5f;
+		if (score > 2500){
+			coeff = 2f;
 		}
 		return coeff;
 
