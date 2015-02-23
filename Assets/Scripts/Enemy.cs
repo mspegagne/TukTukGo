@@ -15,13 +15,9 @@ public class Enemy : MonoBehaviour
 	}
 
 	void Update()
-	{
-
-		
+	{		
 		sprite = GetComponent<SpriteRenderer>();
-		sprite.sortingOrder = Convert.ToInt32(Math.Floor(-transform.position.y * 10));
-		
-		
+		sprite.sortingOrder = Convert.ToInt32(Math.Floor(-transform.position.y * 10));	
 	}
 
 }

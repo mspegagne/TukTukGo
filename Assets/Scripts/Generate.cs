@@ -157,11 +157,12 @@ public class Generate : MonoBehaviour
 		
 		switch (type) {
 		case 1 :
-			bonus = riz;
+			bonus = riz;			
+			position -= 0.5f;	
 			break;
 		default :
 			bonus = bidon;			
-			position += 0.5f;	
+			position -= 0.5f;	
 			break;
 		}
 		

@@ -43,15 +43,15 @@ public class Player : MonoBehaviour
 		}
 
 	}
-
+	
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.gameObject.CompareTag("Bonus")) {
-			points += 75;
-			Destroy(other.gameObject);
+		Bonus colliderBonus = other.GetComponent<Bonus> ();
+		if (colliderBonus != null) {		
+			points += colliderBonus.points;
 		}
+		Destroy (other.gameObject);
 	}
-
-
+	
 	void addPoints()
 	{
 		points += 10;
@@ -64,10 +64,7 @@ public class Player : MonoBehaviour
 		if(points > highscore)
 		{
 			highscore = points;
-			PlayerPrefs.SetInt("High Score", highscore);
-			
-			Debug.Log("High Score is " + highscore );
-			
+			PlayerPrefs.SetInt("High Score", highscore);			
 		}    
 		transform.parent.gameObject.AddComponent<GameOver>();
 	}

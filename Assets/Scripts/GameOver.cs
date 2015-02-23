@@ -5,7 +5,7 @@ public class GameOver : MonoBehaviour
 	void OnGUI()
 	{
 		const int buttonWidth = 120;
-		const int buttonHeight = 60;
+		const int buttonHeight = 70;
 		
 		if (
 			GUI.Button(
@@ -31,7 +31,7 @@ public class GameOver : MonoBehaviour
 			buttonWidth,
 			buttonHeight
 			),
-			"Back to menu"
+			"Menu"
 			)
 			)
 		{		
