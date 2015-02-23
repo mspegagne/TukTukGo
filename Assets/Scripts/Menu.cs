@@ -5,7 +5,7 @@ public class Menu : MonoBehaviour
 
 	void DisplayScore()
 	{
-		Rect IconRect = new Rect(Screen.width/2-130, Screen.height/2, 0, 0);                      
+		Rect IconRect = new Rect(Screen.width/2-130, Screen.height/2-30, 0, 0);                      
 		int highscore = PlayerPrefs.GetInt("High Score");
 
 		GUIStyle style = new GUIStyle();
@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour
 
 		Rect buttonRect = new Rect(
 			Screen.width / 2 - (buttonWidth / 2),
-			(2 * Screen.height / 3) - (buttonHeight / 2),
+			(2 * Screen.height / 3 + 30) - (buttonHeight / 2),
 			buttonWidth,
 			buttonHeight
 			);

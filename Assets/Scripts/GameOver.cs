@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour
 			GUI.Button(
 			new Rect(
 			Screen.width / 2 - (buttonWidth / 2),
-			(1 * Screen.height / 3) - (buttonHeight / 2),
+			(1 * Screen.height / 3 + 30) - (buttonHeight / 2),
 			buttonWidth,
 			buttonHeight
 			),
@@ -27,7 +27,7 @@ public class GameOver : MonoBehaviour
 			GUI.Button(
 			new Rect(
 			Screen.width / 2 - (buttonWidth / 2),
-			(2 * Screen.height / 3) - (buttonHeight / 2),
+			(2 * Screen.height / 3 - 30) - (buttonHeight / 2),
 			buttonWidth,
 			buttonHeight
 			),
